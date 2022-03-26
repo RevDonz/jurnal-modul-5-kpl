@@ -17,15 +17,20 @@ namespace jurnal5_1302204051
         {
             Random rnd = new Random();
             this.id = rnd.Next(0, 100000);
-            this.title = title;
             this.playCount = 0;
+
+            Debug.Assert(title != null);
+            
+            Debug.Assert(title.Length <= 200, "Title tdak boleh lebih dari 200 karakter");
+
+            this.title = title;
         }
 
         public void IncreasePlayCount(int data)
         {
             Debug.Assert(this.playCount <= int.MaxValue);
-            Debug.Assert(data <= 10000000, "Input tidak boleh lebih dari 10 juta");
-
+            Debug.Assert(data <= 25000000, "Input tidak boleh lebih dari 25 juta");
+            Debug.Assert(data > 0, "Input tidak boleh bilangan negatif");
 
             int test;
             try
